@@ -3,9 +3,56 @@
 <head>
   <meta charset="UTF-8">
   <title>Dolby Certification Launcher</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Dolby Certification Launcher - Demo</h1>
-  <p>This is a sample TV UI project for Dolby certification testing.</p>
+  <div class="main-container" style="display: block; width: 100%; height: 100%; position: absolute; opacity: 1; background: linear-gradient(to right, #15191e 25%, #090609 70%);">
+    
+    <div id="left-sidebar">
+    
+        <p id="main-title">MS12 SDK ODA</p>
+        
+        <img id="sidebar-image"/>
+        
+        <button type="button" id="btn-start" class="action-btn">
+            <p class="btn-text">Start Test</p>
+        </button>
+        
+        <button type="button" id="btn-exit" class="action-btn">
+            <p class="btn-text">Exit App</p>
+        </button>
+        
+        <p id="version-info" style="position: absolute; top: 9.9rem;"></p>
+        
+    </div>
+    
+    <div id="right-panel">
+    
+        <div id="main-contents" class="content-container">
+            
+            <div class="content-row">
+                <div id="icon-red" class="content-icon" style="background-color: Red;"></div>
+                <p id="icon-red-text" class="content-text">Press Red Key To Exit Application</p>
+            </div>
+            
+            <div class="content-row">
+                <div id="icon-green" class="content-icon" style="background-color: Green;"></div>
+                <p id="icon-green-text" class="content-text">Press Green Key To Search In Application</p>
+            </div>
+            
+            <div class="content-row">
+                <div id="icon-blue" class="content-icon" style="background-color: Blue;"></div>
+                <p id="icon-blue-text" class="content-text">Press Blue Key To Open Logs In Application</p>
+            </div>
+        
+        </div>
+    
+        <div id="player-container" style="display: none; width: 12.5rem; height: 7.2rem; contain: content; top: 1.90rem; position: absolute;">
+            <iframe id="player-frame" src="httZ" width="100%" height="100%" frameborder="0"></iframe>
+        </div> 
+        
+    </div> 
+    
+</div>
 </body>
 </html>

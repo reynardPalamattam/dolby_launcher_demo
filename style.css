@@ -1,0 +1,131 @@
+
+#left-sidebar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4.8rem;
+    height: 100%;
+    background-color: #15191e;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#right-panel {
+    display: none;
+    left: 5.05rem;
+    padding: 0.25rem;
+    top: 0.73rem;
+    bottom: 0.70rem;
+    width: 12.68rem;
+    height: 8.9rem;
+    position: absolute;
+    border: 0.04rem solid rgb(255, 255, 255);
+    box-shadow: 0 0 30px 4px rgb(132, 132, 132);
+    border-radius: 8px;
+    background: #283033;
+}
+
+#main-title {
+    position: absolute;
+    top: 5.10rem;
+    width: 4.24rem;
+    height: 1.17rem;
+    text-align: center;
+    font: normal normal normal 0.42rem/0.42rem "Neue Frutiger World", sans-serif;
+    letter-spacing: 0rem;
+    color: #FFFFFF;
+    opacity: 1;
+}
+
+#sidebar-image {
+    position: relative;
+    left: 0;
+    top: 2.44rem;
+    content: url(~@assets/tpvMs12ODA/icon.png);
+    width: 2.0rem;
+    height: 2.0rem;
+}
+
+#btn-start {
+    top: 1.00rem;
+}
+
+#btn-exit {
+    top: -2.2rem;
+}
+
+.action-btn {
+    position: relative;
+    width: auto;
+    min-width: 4rem;
+    max-width: 6rem;
+    height: 1.2rem;
+    border: none;
+    overflow: hidden;
+    padding: 0.2rem 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0.03rem 0.06rem rgba(0, 0, 0, 0.16);
+    border-radius: 0.43rem;
+    margin: 0.02rem;
+    color: #000;
+    font-size: 0.16rem;
+    cursor: pointer;
+    background: rgba(98, 118, 136, 0.48);
+}
+
+.action-btn.show {
+    /* display: block; */
+}
+
+.action-btn.hide {
+    display: none;
+}
+
+.btn-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    font-size: 0.12rem;
+}
+
+.focus-comp {
+    outline: 0.04rem solid #0072db !important;
+    background: #0072db !important;
+    outline-offset: 0.03rem;
+    pointer-events: none;
+}
+
+.content-container {
+    display: none;
+    position: absolute;
+    padding: 0.25rem;
+}
+
+.content-row {
+    display: flex;
+    align-items: center;
+    margin: 0.06rem 0;
+}
+
+.content-icon {
+    height: 0.1rem;
+    width: 0.3rem;
+    border-radius: 0.5rem;
+    margin-right: 0.3rem;
+}
+
+.content-text {
+    font-size: 0.24rem;
+    color: #fff;
+    margin: 0;
+}

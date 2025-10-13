@@ -45,7 +45,7 @@
     position: relative;
     left: 0;
     top: 244px;
-    content: url(~@assets/tpvMs12ODA/icon.png);
+    content: url("icon.png");
     width: 200px;
     height: 200px;
 }

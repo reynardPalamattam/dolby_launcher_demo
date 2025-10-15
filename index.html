@@ -5,11 +5,11 @@
   <title>Dolby Certification Launcher</title>
   <link rel="stylesheet" href="style.css">
   <script type="module">
-    import AudioDemoPage from './dolbyTestPage.js';
-    const dolbyTestPage = new TestDolbyPage();
+    import TestDolbyPage from './dolbyTestPage.js';
+    const dolbyPage = new TestDolbyPage ();
       
     window.onload = () => {
-      dolbyTestPage.onShow();
+      dolbyPage.onShow();
     };
   </script>
 </head>

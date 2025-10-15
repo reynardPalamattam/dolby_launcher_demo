@@ -5,7 +5,14 @@
   <title>Dolby Certification Launcher</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script type="module" src="dolbyTestPage.js"></script>
+  <script type="module">
+    import AudioDemoPage from './dolbyTestPage.js';
+    const dolbyTestPage = new TestDolbyPage();
+      
+    window.onload = () => {
+      dolbyTestPage.onShow();
+    };
+  </script>
 </head>
 <body>
   <div class="start_page" style="display: flex;width: 1920px;height: 1080px;position: relative;opacity: 1;align-items: center;align-content: center;justify-content: center;flex-wrap: nowrap;flex-direction: column;">

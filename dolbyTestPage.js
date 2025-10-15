@@ -1,4 +1,3 @@
-import $ from 'jquery';
 import ReleaseData from 'release.json';
 
 const TAG = '[TestDolbyPage]';

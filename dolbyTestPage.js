@@ -3,13 +3,13 @@ import ReleaseData from 'release.json';
 
 const TAG = '[TestDolbyPage]';
 
-const int VK_BACK = 0;
-const int VK_LEFT = 0;
-const int VK_RIGHT = 0;
-const int VK_DOWN = 0;
-const int VK_UP = 0;
-const int VK_ENTER = 0;
-const int VK_HOME = 0;
+const VK_BACK = 0;
+const VK_LEFT = 0;
+const VK_RIGHT = 0;
+const VK_DOWN = 0;
+const VK_UP = 0;
+const VK_ENTER = 0;
+const VK_HOME = 0;
 
 let iframe;
 

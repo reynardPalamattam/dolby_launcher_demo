@@ -1,4 +1,4 @@
-import ReleaseData from 'release.json';
+import ReleaseData from './release.json' assert { type: 'json' };
 
 const TAG = '[TestDolbyPage]';
 

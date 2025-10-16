@@ -1,4 +1,3 @@
-//import ReleaseData from './release.json';
 
 const TAG = '[TestDolbyPage]';
 
@@ -118,19 +117,25 @@ export default class TestDolbyPage {
     document.getElementById('oda_main_contents').style.display = 'block';
   }
 
-  showVersionInfo() {
-    const releaseInfo = JSON.parse(JSON.stringify(ReleaseData));
-    let version = 'undefined';
+async getVersionInfo() {
+  let version = 'undefined';
 
-    if (releaseInfo.length > 0) {
-      version = releaseInfo[0].releaseVersion;
+  try {
+    const response = await fetch('./release.json'); // 👈 no import, just fetch
+    const data = await response.json();
+    if (data.length > 0) {
+      version = data[0].releaseVersion;
     }
-
-    const versionInfoEl = document.getElementById('versionInfo');
-    if (versionInfoEl) {
-      versionInfoEl.innerHTML = `Version : ${version}`;
-    }
+  } catch (error) {
+    console.error('Failed to load release.json:', error);
   }
+
+  const versionInfo = document.getElementById('versionInfo');
+  if (versionInfo) {
+    versionInfo.innerHTML = `Version : ${version}`;
+  }
+}
+
 
   closePage() {
     this.removeEventListeners();

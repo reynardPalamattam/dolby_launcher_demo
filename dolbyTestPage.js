@@ -26,14 +26,14 @@ export default class TestDolbyPage {
 
   onHide() {
     console.log(`${TAG} onHide`);
-    document.getElementById('oda_btn_1').classList.remove('focus_comp');
-    document.getElementById('oda_btn_2').classList.remove('focus_comp');
+    document.getElementById('btn-start').classList.remove('focus-comp');
+    document.getElementById('btn-exit').classList.remove('focus-comp');
     this.stopDemoPlayback();
   }
 
   initPage() {
-    iframe = document.getElementById('playerFrame');
-    document.getElementById('oda_btn_1').classList.add('focus_comp');
+    iframe = document.getElementById('player-frame');
+    document.getElementById('btn-start').classList.add('focus-comp');
     this.showVersionInfo();
   }
 
@@ -75,21 +75,21 @@ export default class TestDolbyPage {
   }
 
   handleSidebarNavigation(keyCode) {
-    const btn1 = document.getElementById('oda_btn_1');
-    const btn2 = document.getElementById('oda_btn_2');
+    const btn1 = document.getElementById('btn-start');
+    const btn2 = document.getElementById('btn-exit');
 
-    if (btn1.classList.contains('focus_comp')) {
+    if (btn1.classList.contains('focus-comp')) {
       if (keyCode === VK_DOWN) {
-        btn1.classList.remove('focus_comp');
-        btn2.classList.add('focus_comp');
+        btn1.classList.remove('focus-comp');
+        btn2.classList.add('focus-comp');
       } else if (keyCode === VK_ENTER) {
-        btn1.classList.remove('focus_comp');
+        btn1.classList.remove('focus-comp');
         this.startDemoPlayback();
       }
     } else {
       if (keyCode === VK_UP) {
-        btn2.classList.remove('focus_comp');
-        btn1.classList.add('focus_comp');
+        btn2.classList.remove('focus-comp');
+        btn1.classList.add('focus-comp');
       } else if (keyCode === VK_ENTER) {
         this.closePage();
       }
@@ -98,23 +98,23 @@ export default class TestDolbyPage {
 
   startDemoPlayback() {
     iframe.src = 'https://ms12.streaming.dolby.com/v28/app/index_28.html';
-    const container = document.getElementById('playerContainer');
+    const container = document.getElementById('player-container');
 
     setTimeout(() => {
       container.style.display = 'block';
-      document.getElementById('oda_main_contents').style.display = 'block';
-      document.getElementById('oda_main_right_Side').style.display = 'block';
+      document.getElementById('main-contents').style.display = 'block';
+      document.getElementById('right-panel').style.display = 'block';
       iframe.focus();
     }, 300);
   }
 
   stopDemoPlayback() {
     iframe.src = '';
-    const container = document.getElementById('playerContainer');
+    const container = document.getElementById('player-container');
     container.style.display = 'none';
-    document.getElementById('oda_main_right_Side').style.display = 'none';
-    document.getElementById('oda_btn_1').classList.add('focus_comp');
-    document.getElementById('oda_main_contents').style.display = 'block';
+    document.getElementById('right-panel').style.display = 'none';
+    document.getElementById('btn-start').classList.add('focus-comp');
+    document.getElementById('main-contents').style.display = 'block';
   }
 
 async getVersionInfo() {
@@ -130,7 +130,7 @@ async getVersionInfo() {
     console.error('Failed to load release.json:', error);
   }
 
-  const versionInfo = document.getElementById('versionInfo');
+  const versionInfo = document.getElementById('version-info');
   if (versionInfo) {
     versionInfo.innerHTML = `Version : ${version}`;
   }

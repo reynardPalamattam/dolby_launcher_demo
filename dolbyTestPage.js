@@ -1,13 +1,16 @@
 
 const TAG = '[TestDolbyPage]';
 
-const VK_BACK = 0;
-const VK_LEFT = 0;
-const VK_RIGHT = 0;
-const VK_DOWN = 0;
-const VK_UP = 0;
-const VK_ENTER = 0;
-const VK_HOME = 0;
+const VK_BACK = 8;
+const VK_LEFT = 37;
+const VK_RIGHT = 39;
+const VK_DOWN = 40;
+const VK_UP = 38;
+const VK_ENTER = 13;
+const VK_HOME = 36;
+const VK_4 = 52;
+const VK_5 = 53;
+const VK_6 = 54;
 
 let iframe;
 
@@ -60,17 +63,13 @@ export default class TestDolbyPage {
       case VK_ENTER:
         this.handleSidebarNavigation(evt.keyCode);
         break;
-      case VK_OPTION:
-      case VK_LIST:
-        evt.stopPropagation();
-        break;
       case VK_HOME:
         evt.preventDefault();
-        evt.stopPropagation();
         this.closePage();
         break;
       default:
-        break;
+		evt.preventDefault();
+		break;
     }
   }
 

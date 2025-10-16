@@ -34,7 +34,7 @@ export default class TestDolbyPage {
   initPage() {
     iframe = document.getElementById('player-frame');
     document.getElementById('btn-start').classList.add('focus-comp');
-    this.showVersionInfo();
+    this.getVersionInfo();
   }
 
   addEventListeners() {

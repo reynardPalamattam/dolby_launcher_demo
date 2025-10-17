@@ -34,7 +34,6 @@ export default class TestDolbyPage {
     console.log(`${TAG} onHide`);
     document.getElementById('btn-start').classList.remove('focus-comp');
     document.getElementById('btn-exit').classList.remove('focus-comp');
-    this.stopDemoPlayback();
   }
 
   initPage() {
@@ -149,6 +148,7 @@ async getVersionInfo() {
     this.stopDemoPlayback();
 	document.getElementsByClassName('main-container')[0].style.display = 'none';
 	document.getElementsByClassName('start_page')[0].style.display = 'flex';
+	this.onHide();
     console.log(`${TAG} Page Closed`);
   }
 

@@ -8,6 +8,7 @@ const VK_DOWN = 40;
 const VK_UP = 38;
 const VK_ENTER = 13;
 const VK_HOME = 36;
+const VK_RED = 82;
 const VK_4 = 52;
 const VK_5 = 53;
 const VK_6 = 54;
@@ -68,6 +69,7 @@ export default class TestDolbyPage {
 			break;
 		case VK_HOME:
 		case VK_BACK:
+		case VK_RED:
 			evt.preventDefault();
 			this.closePage();
 			break;
@@ -110,7 +112,6 @@ export default class TestDolbyPage {
       container.style.display = 'block';
       document.getElementById('main-contents').style.display = 'block';
       document.getElementById('right-panel').style.display = 'block';
-      iframe.focus();
     }, 300);
   }
 

@@ -11,7 +11,9 @@ const VK_HOME = 36;
 const VK_4 = 52;
 const VK_5 = 53;
 const VK_6 = 54;
+const testAppSequence = [53,52,54,52];
 
+let currentTestIndex = 0;
 let iframe;
 
 export default class TestDolbyPage {
@@ -52,47 +54,52 @@ export default class TestDolbyPage {
 
   handleKeyDown(evt) {
     switch (evt.keyCode) {
-      case VK_BACK:
-        evt.stopPropagation();
-        this.closePage();
-        break;
-      case VK_LEFT:
-      case VK_RIGHT:
-      case VK_DOWN:
-      case VK_UP:
-      case VK_ENTER:
-        this.handleSidebarNavigation(evt.keyCode);
-        break;
-      case VK_HOME:
-        evt.preventDefault();
-        this.closePage();
-        break;
-      default:
-		evt.preventDefault();
+		case VK_4:
+		case VK_5:
+		case VK_6:
+			this.handleLaunchKey(evt.keyCode);
+			break;
+		case VK_LEFT:
+		case VK_RIGHT:
+		case VK_DOWN:
+		case VK_UP:
+		case VK_ENTER:
+			this.handleSidebarNavigation(evt.keyCode);
+			break;
+		case VK_HOME:
+		case VK_BACK:
+			evt.preventDefault();
+			this.closePage();
+			break;
+		default:
+			evt.preventDefault();
 		break;
     }
   }
 
   handleSidebarNavigation(keyCode) {
-    const btn1 = document.getElementById('btn-start');
-    const btn2 = document.getElementById('btn-exit');
 
-    if (btn1.classList.contains('focus-comp')) {
-      if (keyCode === VK_DOWN) {
-        btn1.classList.remove('focus-comp');
-        btn2.classList.add('focus-comp');
-      } else if (keyCode === VK_ENTER) {
-        btn1.classList.remove('focus-comp');
-        this.startDemoPlayback();
-      }
-    } else {
-      if (keyCode === VK_UP) {
-        btn2.classList.remove('focus-comp');
-        btn1.classList.add('focus-comp');
-      } else if (keyCode === VK_ENTER) {
-        this.closePage();
-      }
-    }
+	if(document.getElementsByClassName('main-container')[0].style.display == 'block'){
+		const btn1 = document.getElementById('btn-start');
+	    const btn2 = document.getElementById('btn-exit');
+	
+	    if (btn1.classList.contains('focus-comp')) {
+	      if (keyCode === VK_DOWN) {
+	        btn1.classList.remove('focus-comp');
+	        btn2.classList.add('focus-comp');
+	      } else if (keyCode === VK_ENTER) {
+	        btn1.classList.remove('focus-comp');
+	        this.startDemoPlayback();
+	      }
+	    } else {
+	      if (keyCode === VK_UP) {
+	        btn2.classList.remove('focus-comp');
+	        btn1.classList.add('focus-comp');
+	      } else if (keyCode === VK_ENTER) {
+	        this.closePage();
+	      }
+	    }
+	}
   }
 
   startDemoPlayback() {
@@ -139,7 +146,31 @@ async getVersionInfo() {
   closePage() {
     this.removeEventListeners();
     this.stopDemoPlayback();
+	document.getElementsByClassName('main-container')[0].style.display = 'none';
+	document.getElementsByClassName('start_page')[0].style.display = 'flex';
     console.log(`${TAG} Page Closed`);
   }
+
+  handleLaunchKey(keyCode){
+
+	if(document.getElementsByClassName('start_page')[0].style.display == 'flex'){
+
+		if((keyCode >= VK_4) && (keyCode <= VK_6)){
+
+			if(keyCode == testAppSequence[currentTestIndex]){
+				currentTestIndex++;
+			}else{
+				currentTestIndex = 0;
+			}
+			if(testAppSequence.length == currentTestIndex){
+				document.getElementsByClassName('main-container')[0].style.display = 'block';	// launch dolbly test app;
+				document.getElementsByClassName('start_page')[0].style.display = 'none';
+			}
+		}else{
+			currentTestIndex = 0;
+		}
+	}
+  }
+
 }
 

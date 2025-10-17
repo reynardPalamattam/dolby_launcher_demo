@@ -165,6 +165,7 @@ async getVersionInfo() {
 			}
 			if(testAppSequence.length == currentTestIndex){
 				document.getElementsByClassName('main-container')[0].style.display = 'block';	// launch dolbly test app;
+				document.getElementById('btn-start').classList.add('focus-comp');
 				document.getElementsByClassName('start_page')[0].style.display = 'none';
 			}
 		}else{

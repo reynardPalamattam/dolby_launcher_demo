@@ -25,7 +25,6 @@ export default class TestDolbyPage {
   onShow() {
   
     console.log(`${TAG} onShow`);
-	document.documentElement.requestFullscreen();
     this.initPage();
     this.addEventListeners();
 	
@@ -153,6 +152,7 @@ async getVersionInfo() {
 	document.getElementsByClassName('main-container')[0].style.display = 'none';
 	document.getElementsByClassName('start_page')[0].style.display = 'flex';
 	this.onHide();
+	this.closeFullscreen();
     console.log(`${TAG} Page Closed`);
   }
 
@@ -168,6 +168,7 @@ async getVersionInfo() {
 				currentTestIndex = 0;
 			}
 			if(testAppSequence.length == currentTestIndex){
+				this.openFullscreen();
 				document.getElementsByClassName('main-container')[0].style.display = 'block';	// launch dolbly test app;
 				document.getElementById('btn-start').classList.add('focus-comp');
 				document.getElementsByClassName('start_page')[0].style.display = 'none';
@@ -177,6 +178,26 @@ async getVersionInfo() {
 		}
 	}
   }
+
+openFullscreen() {
+  if (document.documentElement.requestFullscreen) {
+    document.documentElement.requestFullscreen();
+  } else if (document.documentElement.webkitRequestFullscreen) { // Safari
+    document.documentElement.webkitRequestFullscreen();
+  } else if (document.documentElement.msRequestFullscreen) { // Explorer/Edge
+    document.documentElement.msRequestFullscreen();
+  }
+}
+
+closeFullscreen() {
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if (document.webkitExitFullscreen) {
+    document.webkitExitFullscreen();
+  } else if (document.msExitFullscreen) {
+    document.msExitFullscreen();
+  }
+}
 
 }
 

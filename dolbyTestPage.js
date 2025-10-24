@@ -68,9 +68,12 @@ export default class TestDolbyPage {
 			break;
 		case VK_HOME:
 		case VK_BACK:
-		case VK_RED:
 			evt.preventDefault();
 			this.closePage();
+			break;
+		case VK_RED:
+			evt.preventDefault();
+			this.stopDemoPlayback();
 			break;
 		default:
 			evt.preventDefault();

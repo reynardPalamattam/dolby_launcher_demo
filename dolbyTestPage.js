@@ -25,6 +25,7 @@ export default class TestDolbyPage {
   onShow() {
   
     console.log(`${TAG} onShow`);
+	document.documentElement.requestFullscreen();
     this.initPage();
     this.addEventListeners();
 	
